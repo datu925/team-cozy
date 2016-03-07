@@ -1,14 +1,72 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/team-cozy/cozytime/spec/test_spec.rb": [
-        1,
-        1,
-        1,
-        null,
-        null
+      "/Users/apprentice/team-cozy/cozytime/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/controllers/movies_controller.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/helpers/application_helper.rb": [
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/models/categorization.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/models/comment.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/models/genre.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/models/movie.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/models/rating.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/models/review.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/team-cozy/cozytime/app/models/user.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
-    "timestamp": 1457388039
+    "timestamp": 1457388748
   }
 }
