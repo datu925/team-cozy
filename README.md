@@ -40,6 +40,7 @@ This project will create a clone of IMDB allowing for movie reviews.
 -- What would you like to see as pie-in-the-sky features that we can't promise but will try to get to?
 
 ##Questions for team lead
+ - Say more about this "fork" git workflow
 
 
 ##Team norms
