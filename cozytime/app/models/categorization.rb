@@ -1,4 +1,4 @@
 class Categorization < ActiveRecord::Base
-  belong_to :movie
-  belong_to :genre
+  belongs_to :movie
+  belongs_to :genre
 end
