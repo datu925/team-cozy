@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 describe "homepage" do
+
   describe "navbar" do
 
     it "display layout header" do
       visit '/'
       expect(page).to have_text("CozyTime Reviews")
     end
+
   end
   describe "top_ten" do
 
@@ -28,10 +30,11 @@ describe "homepage" do
     it "should display the most recent comment content" do
       review = Review.most_recent.first
       visit '/'
-      expect(page).to have_text("#{review.content}")
+      area = find("#recent-reviews").text
+      expect(area).to have_text("#{review.title}")
     end
 
-    it "should display the most recent comment username" do
+    it "should display comment username for any of the ten most recent" do
       review = Review.most_recent.sample
       visit '/'
       expect(page).to have_text("#{review.user.username}")
@@ -40,7 +43,29 @@ describe "homepage" do
     it "should link to the movie the review is for" do
       review = Review.most_recent.sample
       visit '/'
-      expect(page).to have_text("#{review.user.username}")
+      within('#recent-reviews'){ page.has_link? "#{review.movie.title}" }
+    end
+
+    it "should link to the movie the review is for" do
+      review = Review.most_recent.sample
+      visit '/'
+      find("#review#{review.id}").find('a', :text => "#{review.movie.title}").click
+      expect(current_path).to eq(movie_path(review.movie))
+    end
+  end
+  describe "genres" do
+
+    it "should display the first sorted movie" do
+      genre = Genre.most_popular.first
+      visit '/'
+      expect(page).to have_text("#{genre.title_case}")
+    end
+
+    it "should redirect to the show page for any genres listed" do
+      genre = Genre.most_popular.sample
+      visit '/'
+      click_link("#{genre.title_case}", :match => :first)
+      expect(current_path).to eq(genre_path(genre.id))
     end
   end
 end
