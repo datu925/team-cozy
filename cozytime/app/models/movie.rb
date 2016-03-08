@@ -4,4 +4,13 @@ class Movie < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :categorizations
   has_many :genres, through: :categorizations
+
+  def average_rating
+    self.ratings.sum(:value)/self.ratings.count
+  end
+
+  def self.top_ten
+    Movie.all.sort_by{ |film| film.average_rating }.last(10).reverse!
+  end
+
 end

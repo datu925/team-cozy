@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   resources :movies, only: [:index, :show]
 
+  resources :users
+
   root 'movies#index'
 
   # Example of regular route:
