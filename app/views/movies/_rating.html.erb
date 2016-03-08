@@ -1,0 +1,7 @@
+<%= form_for :rating, {url: ratings_path, remote: true , authenticity_token: true, html: { class: "rating" }} do |f| %>
+  Rating: <%= f.text_field :value %>
+  <%= hidden_field_tag :'rating[ratable_id]', ratable_id %>
+  <%= hidden_field_tag :'rating[ratable_type]', ratable_type %>
+  <%= f.submit %>
+<% end %>
+<div class="rating-errors"></div>
