@@ -1,1 +1,12 @@
-HEY!
+<h3>Top Ten Movies</h3>
+<ul>
+<% @movies.each do |movie| %>
+<li><%= link_to(movie.title, movie_path(movie)) %></li>
+<% end %>
+</ul>
+<h3>Most Recent </h3>
+<ul>
+<% @movies.each do |movie| %>
+<li><%= link_to(movie.title, movie_path(movie)) %></li>
+<% end %>
+</ul>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Cozytime</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>CozyTime Reviews</title>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <h1><%= link_to("CozyTime Reviews", root_path)%></h1>
+      <nav></nav>
+    </header>
+    <%= yield %>
+  </body>
 </html>
