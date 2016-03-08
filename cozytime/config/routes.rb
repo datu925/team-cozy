@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy', as: 'logout'
 
   resources :movies, only: [:index, :show]
+  resources :users
 
 
   # Example of regular route:

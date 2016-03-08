@@ -1,9 +1,25 @@
-<h1>This is just enough copy to test register, login, etc and should be deleted after</h1>
-
-<% if session[:user_id].nil? %>
-<%= "Not logged in" %>
-<% else %>
-<%= "Logged in" %>
+<h3>Top Ten Movies</h3>
+<section id="top-films">
+<ul>
+<% @movies.each do |movie| %>
+<li><%= image_tag(movie.image_url, size: "50x50") %>
+  <%= link_to(movie.title, movie_path(movie)) %> (Average Rating: <%=movie.average_rating%>)</li>
 <% end %>
-
-<%= link_to("logout", logout_path, method: :delete) %>
+</ul>
+</section>
+<h3>Most Recent Reviews</h3>
+<section id="recent-reviews">
+<ul>
+<% @reviews.each do |review| %>
+<li><%= review.title + " || Review of " %><%= link_to(review.movie.title, movie_path(review.movie)) + " by " %><%= review.user.name %></li>
+<% end %>
+</ul>
+</section>
+<h3>Most Popular Genres</h3>
+<section id="pop-genres">
+<ul>
+<% @genres.each do |genre| %>
+<li><%= genre.name %></li>
+<% end %>
+</ul>
+</section>
