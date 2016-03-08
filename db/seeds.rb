@@ -18,7 +18,7 @@ end
 
 movies.each do |movie|
 
-  type = genres.sample(2)
+  type = genres.rotate!
   Categorization.create!(movie: movie, genre: type[0])
   Categorization.create!(movie: movie, genre: type[1])
 
