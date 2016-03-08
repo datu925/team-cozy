@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :genres, only: [:show]
   resources :ratings, only: [:create]
 
+  get '/search' => 'movies#search'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
