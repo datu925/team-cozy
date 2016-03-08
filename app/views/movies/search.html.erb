@@ -1,1 +1,9 @@
-Hello World
+<h3>Search Results</h3>
+<section id="searched-films">
+<ul>
+<% @movies.each do |movie| %>
+<li class="result"><%= image_tag(movie.image_url, size: "50x50") %>
+  <%= link_to(movie.title, movie_path(movie)) %> (Average Rating: <%=movie.average_rating%>)</li>
+<% end %>
+</ul>
+</section>

@@ -15,7 +15,7 @@ class Movie < ActiveRecord::Base
 
   def self.title_search(search)
     fz = FuzzyMatch.new(Movie.all, :read => :title)
-    @results = fz.find(search)
+    @results = fz.find_all(search)
   end
 
   def self.top_ten

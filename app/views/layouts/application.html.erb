@@ -2,12 +2,15 @@
 <html>
   <head>
     <title>CozyTime Reviews</title>
-    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'app' %>
+    <%= stylesheet_link_tag 'application' %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <%= csrf_meta_tags %>rel
   </head>
   <body>
     <header>
       <h1><%= link_to("CozyTime Reviews", root_path)%></h1>
-      <nav>
+      <nav class="nav">
         <ul>
           <% if logged_in? %>
             <li>Welcome, <%= current_user.name %></li>
@@ -20,8 +23,8 @@
       </nav>
       <%= form_tag("/search", method: "get") do %>
       <%= text_field_tag(:q) %>
-      <%= submit_tag("Search") %>
-<% end %>
+      <i class='icon-search'></i>
+      <% end %>
     </header>
     <%= yield %>
   </body>
