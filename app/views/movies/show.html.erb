@@ -1,0 +1,41 @@
+<div>
+  <section><%= image_tag @movie.image_url %></a></div>
+  <div>
+    <h3><%= @movie.title %></h3>
+    <p>Average Rating: <%= @movie.average_rating %></p>
+    <p>Release Year: <%= @movie.release_year %></p>
+    <p>Genres: <% @movie.genres.each do |genre| %>
+      <%= link_to(genre.title_case, genre_path(genre))%> ||
+      <% end %></p>
+    <div>
+      <p><%= @movie.synopsis %></p>
+    </div>
+  </section>
+
+  <section>
+    <h3>Movie Reviews</h3>
+    <% @movie.reviews.each do |review| %>
+    <h2><%= review.title %></h2>
+    <div>
+      <p><%= review.content %></p>
+    </div>
+    <p>reviewed by <%= review.user.username %></p>
+    <h4>Comments</h4>
+    <% review.comments.each do |comment| %>
+      <p><%= comment.content %></p>
+      <p>commented by <%= comment.user.username %></p>
+    <% end %>
+    <% end %>
+  </section>
+
+  <section>
+    <h3>Movie Comments</h3>
+    <% @movie.comments.each do |comment| %>
+    <div>
+      <!-- add username -->
+      <p><%= comment.content %></p>
+    </div>
+    <p>commented by <%= comment.user.username %></p>
+    <% end %>
+  </section>
+</div>
