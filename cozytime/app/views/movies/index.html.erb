@@ -2,7 +2,7 @@
 <section id="top-films">
 <ul>
 <% @movies.each do |movie| %>
-<li><%= image_tag(movie.image_url, size: "50x50") %>
+<li class="top-movie"><%= image_tag(movie.image_url, size: "50x50") %>
   <%= link_to(movie.title, movie_path(movie)) %> (Average Rating: <%=movie.average_rating%>)</li>
 <% end %>
 </ul>

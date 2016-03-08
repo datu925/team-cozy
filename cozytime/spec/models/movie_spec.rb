@@ -22,15 +22,10 @@ describe 'movie' do
 
   describe '#self.top_ten' do
     it 'returns the top ten movies by rating' do
-      movie1 = Movie.create!(title: "Test title", release_year: 2016, synopsis: "This is a synopsis")
-      movie1.ratings.create!(value: 1)
 
-      movie2 = Movie.create!(title: "Test title", release_year: 2016, synopsis: "This is a synopsis")
-      movie2.ratings.create!(value: 2)
+      expect(Movie.top_ten.first.average_rating).to be >= Movie.top_ten.last.average_rating
 
-      movie3 = Movie.create!(title: "Test title", release_year: 2016, synopsis: "This is a synopsis")
-      movie3.ratings.create!(value: 3)
-      expect(Movie.top_ten).to eq([movie3, movie2, movie1])
+      expect(Movie.top_ten.length).to eq(10)
     end
   end
 end

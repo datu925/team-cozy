@@ -13,6 +13,28 @@
         null,
         null
       ],
+      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/controllers/movies_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
       "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/movie.rb": [
         1,
         1,
@@ -22,15 +44,15 @@
         1,
         null,
         1,
-        4,
+        216,
         0,
         null,
-        4,
+        216,
         null,
         null,
         null,
         1,
-        4,
+        233,
         null,
         null,
         null
@@ -43,27 +65,52 @@
         null,
         null
       ],
-      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/controllers/application_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
+      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/review.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
       ],
-      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/controllers/movies_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/genre.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        11,
+        null,
+        null,
+        1,
+        25,
+        null,
+        null
+      ],
+      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/categorization.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/user.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        10,
+        null,
+        null
       ],
       "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/controllers/sessions_controller.rb": [
         0,
@@ -109,60 +156,13 @@
         0,
         0
       ],
-      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/categorization.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
       "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/comment.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/genre.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/review.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/catiestallings/DBC/phase-3/team-cozy/cozytime/app/models/user.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1457457246
+    "timestamp": 1457467239
   }
 }
