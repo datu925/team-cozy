@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    puts "hitting it 000000000000000000000000000000000000"
     render "logout"
   end
 end
