@@ -1,12 +1,13 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.top_ten
-    @ratings = Ratings.most_recent
+    @reviews = Review.most_recent
+    @genres = Genre.most_popular
+    render :index
   end
 
   def show
-    # @movie = Movie.find(params[:id])
-    @movie = Movie.first
+    @movie = Movie.find(params[:id])
     render :show
   end
 end

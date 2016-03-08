@@ -10,7 +10,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.top_ten
-    Movie.all.sort_by{ |film| film.average_rating }.last(10)
+    Movie.all.sort_by{ |film| film.average_rating }.last(10).reverse!
   end
 
 end
