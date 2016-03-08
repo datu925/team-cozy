@@ -7,4 +7,30 @@
       <p><%= @movie.synopsis %></p>
     </div>
   </div>
+
+  <div>
+    <h3>Movie Reviews</h3>
+    <% @movie.reviews.each do |review| %>
+    <!-- add username -->
+    <h2><%= review.title %></h2>
+    <div>
+      <p><%= review.content %></p>
+    </div>
+    <h4>Comments</h4>
+    <% review.comments.each do |comment| %>
+    <!-- add username -->
+      <p><%= comment.content %></p>
+    <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <h3>Movie Comments</h3>
+    <% @movie.comments.each do |comment| %>
+    <div>
+      <!-- add username -->
+      <p><%= comment.content %></p>
+    </div>
+    <% end %>
+  </div>
 </div>
