@@ -1,0 +1,8 @@
+<section id="pop-genre-movies">
+<ul>
+  <h3>Top <%= @genre.title_case %> Films</h3>
+<% @movies.each do |film| %>
+<li><%= link_to(film.title, movie_path(film))%></li>
+<% end %>
+</ul>
+</section>
