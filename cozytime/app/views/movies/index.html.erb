@@ -1,1 +1,9 @@
-HEY!
+<h1>This is just enough copy to test register, login, etc and should be deleted after</h1>
+
+<% if session[:user_id].nil? %>
+<%= "Not logged in" %>
+<% else %>
+<%= "Logged in" %>
+<% end %>
+
+<%= link_to("logout", logout_path, method: :delete) %>
