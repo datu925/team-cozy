@@ -1,0 +1,10 @@
+<h2><%= review.title %></h2>
+<div>
+  <p><%= review.content %></p>
+</div>
+<p>reviewed by <%= review.user.username %></p>
+<h4>Comments</h4>
+<% review.comments.each do |comment| %>
+  <p><%= comment.content %></p>
+  <p>commented by <%= comment.user.username %></p>
+<% end %>

@@ -1,3 +1,4 @@
+require 'rails_helper'
 require 'spec_helper'
 
 describe "homepage" do
@@ -6,3 +7,5 @@ describe "homepage" do
     expect(current_path).to eq('/')
   end
 end
+
+
