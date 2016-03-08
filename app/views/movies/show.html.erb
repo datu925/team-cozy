@@ -13,18 +13,13 @@
   </section>
 
   <section>
-    <h3>Movie Reviews</h3>
-    <% @movie.reviews.each do |review| %>
-    <h2><%= review.title %></h2>
-    <div>
-      <p><%= review.content %></p>
-    </div>
-    <p>reviewed by <%= review.user.username %></p>
-    <h4>Comments</h4>
-    <% review.comments.each do |comment| %>
-      <p><%= comment.content %></p>
-      <p>commented by <%= comment.user.username %></p>
+    <h3>Trusted Movie Reviews</h3>
+    <% @movie.trusted_reviews.each do |review| %>
+      <%= render partial: "review", locals: { review: review } %>
     <% end %>
+    <h3>Other Movie Reviews</h3>
+    <% @movie.untrusted_reviews.each do |review| %>
+      <%= render partial: "review", locals: { review: review } %>
     <% end %>
   </section>
 

@@ -17,4 +17,12 @@ class Movie < ActiveRecord::Base
     Movie.all.sort_by{ |film| film.average_rating }.last(10).reverse!
   end
 
+  def trusted_reviews
+    reviews.joins(:user).where('users.is_trusted = true')
+  end
+
+  def untrusted_reviews
+    reviews.joins(:user).where('users.is_trusted = false')
+  end
+
 end
