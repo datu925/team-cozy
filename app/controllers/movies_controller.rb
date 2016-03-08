@@ -10,4 +10,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     render :show
   end
+
+  def search
+    @movie = Movie.title_search(params[:search])
+    render :search
+  end
+
 end

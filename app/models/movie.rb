@@ -13,6 +13,11 @@ class Movie < ActiveRecord::Base
     end
   end
 
+  def self.title_search(search)
+    fz = FuzzyMatch.new(Movie.all, :read => :title)
+    @results = fz.find(search)
+  end
+
   def self.top_ten
     Movie.all.sort_by{ |film| film.average_rating }.last(10).reverse!
   end

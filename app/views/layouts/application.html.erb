@@ -18,6 +18,10 @@
           <% end %>
         </ul>
       </nav>
+      <%= form_tag("/search", method: "get") do %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+<% end %>
     </header>
     <%= yield %>
   </body>
