@@ -2,7 +2,7 @@
 <section id="top-films">
 <ul>
 <% @movies.each do |movie| %>
-<li><%= image_tag(movie.image_url, size: "50x50") %>
+<li class="top-movie"><%= image_tag(movie.image_url, size: "50x50") %>
   <%= link_to(movie.title, movie_path(movie)) %> (Average Rating: <%=movie.average_rating%>)</li>
 <% end %>
 </ul>
@@ -11,7 +11,7 @@
 <section id="recent-reviews">
 <ul>
 <% @reviews.each do |review| %>
-<li><%= review.title + " || Review of " %><%= link_to(review.movie.title, movie_path(review.movie)) + " by " %><%= review.user.username %></li>
+<li id="review<%= review.id %>"><%= review.title + " || Review of " %><%= link_to(review.movie.title, movie_path(review.movie)) + " by " %><%= review.user.username %></li>
 <% end %>
 </ul>
 </section>
