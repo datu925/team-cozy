@@ -23,11 +23,13 @@
     <% end %>
 
     <% if logged_in? %>
-      <%= form_for [@movie, @review], remote: true do |f|  %>
-        <%= f.text_field :title  %>
-        <%= f.text_area :content  %>
-        <%= f.submit  %>
-      <% end %>
+    <div id="new-review">
+        <%= form_for [@movie, @review], remote: true do |f|  %>
+          <%= f.text_field :title  %>
+          <%= f.text_area :content  %>
+          <%= f.submit  %>
+        <% end %>
+    </div>
     <% end %>
 
 
