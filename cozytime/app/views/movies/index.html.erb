@@ -11,7 +11,7 @@
 <section id="recent-reviews">
 <ul>
 <% @reviews.each do |review| %>
-<li><%= review.title + " || Review of " %><%= link_to(review.movie.title, movie_path(review.movie)) + " by " %><%= review.user.name %></li>
+<li><%= review.title + " || Review of " %><%= link_to(review.movie.title, movie_path(review.movie)) + " by " %><%= review.user.username %></li>
 <% end %>
 </ul>
 </section>
@@ -19,7 +19,7 @@
 <section id="pop-genres">
 <ul>
 <% @genres.each do |genre| %>
-<li><%= genre.name %></li>
+<li><%= link_to(genre.title_case, genre_path(genre))%></li>
 <% end %>
 </ul>
 </section>

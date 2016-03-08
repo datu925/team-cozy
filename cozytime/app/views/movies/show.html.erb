@@ -4,6 +4,9 @@
     <h3><%= @movie.title %></h3>
     <p>Average Rating: <%= @movie.average_rating %></p>
     <p>Release Year: <%= @movie.release_year %></p>
+    <p>Genres: <% @movie.genres.each do |genre| %>
+      <%= link_to(genre.title_case, genre_path(genre))%> ||
+      <% end %></p>
     <div>
       <p><%= @movie.synopsis %></p>
     </div>

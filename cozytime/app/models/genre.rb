@@ -5,4 +5,12 @@ class Genre < ActiveRecord::Base
   def self.most_popular
     Genre.all.sort_by{|genre| genre.movies.count}.last(10).reverse!
   end
+
+  def title_case
+    self.name.split(/(\W)/).map(&:capitalize).join
+  end
+
+  def highest_rated_films
+    self.movies.top_ten
+  end
 end
