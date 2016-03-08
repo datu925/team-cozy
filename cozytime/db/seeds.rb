@@ -11,7 +11,9 @@ genres = 10.times.map do
 end
 
 movies = 20.times.map do
-  Movie.create!(title: Faker::Book.title, release_year: Faker::Date.between(20.years.ago, Date.today), image_url: Faker::Avatar.image("100x100"), synopsis: Faker::Hipster.paragraph)
+  years = (1960..2016).to_a
+
+  Movie.create!(title: Faker::Book.title, release_year: years.sample, image_url: Faker::Avatar.image("100x100"), synopsis: Faker::Hipster.paragraph)
 end
 
 movies.each do |movie|
