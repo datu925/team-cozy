@@ -19,7 +19,7 @@
 <section id="pop-genres">
 <ul>
 <% @genres.each do |genre| %>
-<li><%= genre.name %></li>
+<li><%= genre.name %> (Highest Rated film is: <%= link_to(genre.highest_rated.title, movie_path(genre.highest_rated))%>)</li>
 <% end %>
 </ul>
 </section>

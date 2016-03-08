@@ -5,4 +5,8 @@ class Genre < ActiveRecord::Base
   def self.most_popular
     Genre.all.sort_by{|genre| genre.movies.count}.last(10).reverse!
   end
+
+  def highest_rated
+    self.movies.top_ten.first
+  end
 end

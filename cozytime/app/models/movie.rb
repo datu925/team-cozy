@@ -6,7 +6,11 @@ class Movie < ActiveRecord::Base
   has_many :genres, through: :categorizations
 
   def average_rating
-    self.ratings.sum(:value)/self.ratings.count
+    if self.ratings.count == 0
+      return "unrated"
+    else
+      self.ratings.sum(:value)/self.ratings.count
+    end
   end
 
   def self.top_ten
