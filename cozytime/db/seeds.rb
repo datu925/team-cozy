@@ -1,8 +1,8 @@
-dan = User.create!(username: "datu", password_digest: "password", first_name: "Dan", last_name: "Turcza", is_trusted: true)
-catie = User.create!(username: "cstallings", password_digest: "password", first_name: "Catie", last_name: "Stallings", is_trusted: false)
-lauren = User.create!(username: "laurenn", password_digest: "password", first_name: "Lauren", last_name: "Reid", is_trusted: false)
-tiffany = User.create!(username: "tslarson", password_digest: "password", first_name: "Tiffany", last_name: "Larson", is_trusted: false)
-roger = User.create!(username: "rebert", password_digest: "password", first_name: "Roger", last_name: "Ebert", is_trusted: true)
+dan = User.create!(username: "datu", password: "password", first_name: "Dan", last_name: "Turcza", is_trusted: true)
+catie = User.create!(username: "cstallings", password: "password", first_name: "Catie", last_name: "Stallings", is_trusted: false)
+lauren = User.create!(username: "laurenn", password: "password", first_name: "Lauren", last_name: "Reid", is_trusted: false)
+tiffany = User.create!(username: "tslarson", password: "password", first_name: "Tiffany", last_name: "Larson", is_trusted: false)
+roger = User.create!(username: "rebert", password: "password", first_name: "Roger", last_name: "Ebert", is_trusted: true)
 
 users = [dan, catie, lauren, roger]
 

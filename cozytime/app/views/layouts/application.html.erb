@@ -7,7 +7,16 @@
   <body>
     <header>
       <h1><%= link_to("CozyTime Reviews", root_path)%></h1>
-      <nav><%= link_to("Login/Register", new_user_path)%></nav>
+      <nav>
+        <ul>
+          <% if logged_in? %>
+            <li><%= link_to("Logout", logout_path) %></li>
+          <% else %>
+            <li><%= link_to("Register", register_path)%></li>
+            <li><%= link_to("Login", login_path)%></li>
+          <% end %>
+        </ul>
+      </nav>
     </header>
     <%= yield %>
   </body>
