@@ -4,7 +4,7 @@ class RatingsController < ApplicationController
     rating = user.ratings.new(rating_params)
     # send back successful code
     if rating.save
-      head :created
+      render json: rating.ratable.average_rating, status: :ok
     else
       render json: rating.errors.full_messages, status: :not_acceptable
     end
