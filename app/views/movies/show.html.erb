@@ -13,13 +13,29 @@
   </section>
 
   <section>
-    <h3>Trusted Movie Reviews</h3>
-    <% @movie.trusted_reviews.each do |review| %>
-      <%= render partial: "review", locals: { review: review } %>
-    <% end %>
-    <h3>Other Movie Reviews</h3>
-    <% @movie.untrusted_reviews.each do |review| %>
-      <%= render partial: "review", locals: { review: review } %>
+    <div id="movie-reviews">
+      <h3>Trusted Movie Reviews</h3>
+      <% @movie.trusted_reviews.each do |review| %>
+        <%= render partial: "review", locals: { review: review } %>
+      <% end %>
+      <h3>Other Movie Reviews</h3>
+      <% @movie.untrusted_reviews.each do |review| %>
+        <%= render partial: "review", locals: { review: review } %>
+      <% end %>
+  </div>
+    <% if logged_in? %>
+      <div id="new-review">
+          <%= form_for [@movie, @review], remote: true do |f|  %>
+            <%= f.text_field :title  %>
+            <%= f.text_area :content  %>
+            <%= f.submit  %>
+          <% end %>
+      </div>
+  <% end %>
+
+
+    <% if flash[:notice] %>
+      <%= flash[:notice]  %>
     <% end %>
   </section>
 

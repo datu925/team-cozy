@@ -2,10 +2,11 @@
 <html>
   <head>
     <title>CozyTime Reviews</title>
-    <%= stylesheet_link_tag 'application' %>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <%= stylesheet_link_tag 'app' %>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'app' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false  %>
+    <%= javascript_include_tag 'application', "data-turbolinks-track" => false  %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
     <header class="page-header">
