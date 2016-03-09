@@ -9,12 +9,9 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <header class="page-header">
+    <header class="page-header" id="top-bar">
     <nav class="navbar navbar-default">
-      <div class="navbar-header">
-        <%= link_to raw("CozyTime Reviews <i class='icon-coffee'></i>"), {controller: "movies", action: "index"}, class: "navbar-brand" %>
-      </div>
-
+        <%= link_to raw("CozyTime Reviews <i class='icon-coffee'></i>"), {controller: "movies", action: "index"}, class: "navbar-brand", id: "header-font" %>
         <ul class="nav navbar-nav">
           <% if logged_in? %>
             <li><a>Welcome, <i class='icon-user'></i> <%= current_user.name %></a></li>
