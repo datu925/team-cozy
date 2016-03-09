@@ -1,7 +1,19 @@
 <%= form_for :rating, {url: ratings_path, remote: true , authenticity_token: true, html: { class: "rating" }} do |f| %>
-  Rating: <%= f.text_field :value %>
+  <!-- Rating: <%= f.text_field :value %> -->
+  Rate this <%= ratable_type.downcase %>:
+  <div class="rating-scale">
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+    <a href="hi"><i class="icon-thumbs-up"></i></a>
+  </div>
   <%= hidden_field_tag :'rating[ratable_id]', ratable_id %>
   <%= hidden_field_tag :'rating[ratable_type]', ratable_type %>
-  <%= f.submit %>
+  <div class="rating-messages"></div>
 <% end %>
-<div class="rating-errors"></div>

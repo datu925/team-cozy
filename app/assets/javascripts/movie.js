@@ -1,10 +1,22 @@
 $(function() {
-  $(".rating").on("ajax:success", function(e, data, status, xhr) {
-    $(this).trigger("reset");
-    $(this).next().html("<span>Rating saved!</span>")
-  })
 
-  $(".rating").on("ajax:error", function(e, data, status, xhr) {
-    $(this).next().html("<span>Rating not saved.</span>");
-  })
+  $(".rating").on("click","a", function(e) {
+    e.preventDefault();
+    var value = $(this).index() + 1;
+    var form = $(this).closest("form");
+    $.ajax({
+      method: "post",
+      url: form.attr("action"),
+      data: form.serialize() + "&rating[value]=" + value
+    })
+    .done(function(updated_rating) {
+      form.trigger('reset');
+      form.find(".rating-messages").text("Rating saved!")
+      form.closest(".ratable").find(".avg-rating").text(updated_rating);
+    })
+    .error(function(response) {
+      form.find(".rating-messages").text("Rating not saved.");
+    });
+  });
+
 })
