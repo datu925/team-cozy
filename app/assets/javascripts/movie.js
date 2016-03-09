@@ -4,8 +4,15 @@ $(function() {
     e.preventDefault();
     var value = $(this).index() + 1;
     var form = $(this).closest("form");
+    var isUpdate = form.find(".rating-scale .marked").length;
+    var method;
+    if (isUpdate) {
+      method = "put"
+    } else {
+      method = "post"
+    }
     $.ajax({
-      method: "post",
+      method: method,
       url: form.attr("action"),
       data: form.serialize() + "&rating[value]=" + value
     })
@@ -14,10 +21,10 @@ $(function() {
       form.find(".rating-messages").text("Rating saved!");
       form.find(".rating-scale i").removeClass("marked");
       form.find(".rating-scale a:nth-child(" + details.new_rating + ") i").addClass("marked");
-      form.closest(".ratable").find(".avg-rating").text(details.avg_rating);
+      form.closest(".ratable").find(".avg-rating").text(details.avg_rating + "%");
     })
     .error(function(response) {
-      form.find(".rating-messages").text("Rating not saved.");
+      form.find(".rating-messages").text("You can't rate more than once.");
     });
   });
 
