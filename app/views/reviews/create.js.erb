@@ -1,0 +1,3 @@
+$("#new-rating-thing").prepend("<%= escape_javascript(render partial: 'movies/review', :locals => { review: @review} ) %>");
+
+$("#write-review").find("form").remove()
