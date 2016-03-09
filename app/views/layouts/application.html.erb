@@ -3,13 +3,16 @@
   <head>
     <title>CozyTime Reviews</title>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'app' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false  %>
     <%= javascript_include_tag 'application', "data-turbolinks-track" => false  %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
   </head>
   <body>
     <header>
       <h1><%= link_to("CozyTime Reviews", root_path)%></h1>
-      <nav>
+      <nav class="nav">
         <ul>
           <% if logged_in? %>
             <li>Welcome, <%= current_user.name %></li>
@@ -20,6 +23,10 @@
           <% end %>
         </ul>
       </nav>
+      <%= form_tag("/search", method: "get") do %>
+      <%= text_field_tag(:q) %>
+      <i class='icon-search'></i>
+      <% end %>
     </header>
     <%= yield %>
   </body>

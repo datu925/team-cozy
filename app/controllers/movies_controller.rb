@@ -11,4 +11,10 @@ class MoviesController < ApplicationController
     @review = Review.new
     render :show
   end
+
+  def search
+    @movies = Movie.title_search(params[:q])
+    render :search
+  end
+
 end

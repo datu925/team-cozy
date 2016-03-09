@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :genres, only: [:show]
 
 
+  get '/search' => 'movies#search'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
