@@ -9,11 +9,11 @@
     <div class="panel-heading">
       <h3 class="panel-title">Comments</h3>
     </div>
-<div id="review-comments-<%= review.id %> comment-listing">
+<div id="review-comments-<%= review.id %> comments-left">
   <% review.comments.each do |comment| %>
     <div>
-      <p id="comment-content"><%= comment.content %></p>
-      <p class="text-info" id="user-commented">commented by <%= comment.user.username %></p>
+      <p id="comment-review"><%= comment.content %></p>
+      <p class="text-info">commented by <%= comment.user.username %></p>
     </div>
   <% end %>
 </div>

@@ -13,12 +13,6 @@
 
     </div>
   </section>
-  <div id="write-review">
-    <% if logged_in? %>
-      <%= link_to "Write a Review", new_movie_review_path(@movie), remote: true %>
-    <% end %>
-  </div>
-
 
   <section class="panel panel-info" id="comments">
     <div class="panel-heading">
@@ -43,6 +37,11 @@
     </div>
   </section>
 
+<div id="write-review">
+    <% if logged_in? %>
+      <%= link_to "Write a Review", new_movie_review_path(@movie), remote: true %>
+    <% end %>
+  </div>
   <section class="panel panel-success" id="reviews">
     <div class="panel-heading" id="movie-reviews">
       <h3 class="panel-title">Trusted Movie Reviews</h3>

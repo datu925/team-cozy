@@ -6,10 +6,24 @@
   width: 100%;
 }
 
-#information{
-  margin-top: 30px;
+#bye-felicia{
+  padding: 1%;
 }
 
+#body-stuff{
+  margin-top: 5%;
+}
+
+#comment-review{
+  padding: 5px;
+}
+
+#write-review{
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+
+}
 
 #movie-show{
   margin-top: 5%;
