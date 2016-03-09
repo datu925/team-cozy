@@ -3,6 +3,7 @@
   <div>
     <h3><%= @movie.title %></h3>
     <p>Average Rating: <span class="avg-rating"><%= number_to_percentage(@movie.average_rating, precision: 0) %></span></p>
+    <%= render :partial => "rating", locals: { :ratable => @movie } %>
     <p>Release Year: <%= @movie.release_year %></p>
     <p>Genres: <% @movie.genres.each do |genre| %>
       <%= link_to(genre.title_case, genre_path(genre))%> ||
@@ -10,7 +11,6 @@
     <div>
       <p><%= @movie.synopsis %></p>
     </div>
-  <%= render partial: "rating", locals: { ratable_type: "Movie" , ratable_id: @movie.id } %>
   </section>
 
   <section>
@@ -38,8 +38,6 @@
       <% @movie.trusted_reviews.each do |review| %>
       <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
-        <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
-
         <% if logged_in? %>
           <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
             <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
@@ -54,8 +52,6 @@
       <% @movie.untrusted_reviews.each do |review| %>
       <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
-        <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
-
           <% if logged_in? %>
             <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
               <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
