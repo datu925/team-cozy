@@ -22,11 +22,6 @@
       <% end %>
     <% end %>
 
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% end %>
-
-    <%= flash[:errors] %>
     <div id="comment-listing">
       <% @movie.comments.each do |comment| %>
       <div>
@@ -35,7 +30,6 @@
       </div>
       <% end %>
     </div>
-
   </section>
 
   <section>
@@ -63,12 +57,12 @@
         <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
 
           <% if logged_in? %>
-          <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
-            <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
-            <%= f.text_area :content, placeholder: "write comment" %>
-            <%= f.submit %>
+            <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
+              <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
+              <%= f.text_area :content, placeholder: "write comment" %>
+              <%= f.submit %>
+            <% end %>
           <% end %>
-        <% end %>
 
       </div>
 
@@ -82,12 +76,11 @@
             <%= f.submit  %>
           <% end %>
       </div>
-  <% end %>
+    <% end %>
 
     <% if flash[:notice] %>
       <%= flash[:notice]  %>
     <% end %>
   </section>
-
 </article>
 </div>
