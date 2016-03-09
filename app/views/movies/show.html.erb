@@ -45,11 +45,13 @@
       <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
         <% if logged_in? %>
+        <div class="panel-body" id="comment-listing">
           <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
             <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
             <%= f.text_area :content, placeholder: "write comment" %>
             <%= f.submit %>
           <% end %>
+        </div>
         <% end %>
 
       </div>

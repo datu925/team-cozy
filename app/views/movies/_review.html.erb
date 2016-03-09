@@ -5,12 +5,15 @@
   <p><%= review.content %></p>
 </div>
 <p>reviewed by <%= review.user.username %></p>
-<h4>Comments</h4>
-<div id="review-comments-<%= review.id %>">
+<section class="panel panel-info" id="comments">
+    <div class="panel-heading">
+      <h3 class="panel-title">Comments</h3>
+    </div>
+<div id="review-comments-<%= review.id %> comment-listing">
   <% review.comments.each do |comment| %>
     <div>
-      <p><%= comment.content %></p>
-      <p>commented by <%= comment.user.username %></p>
+      <p id="comment-content"><%= comment.content %></p>
+      <p class="text-info" id="user-commented">commented by <%= comment.user.username %></p>
     </div>
   <% end %>
 </div>
