@@ -1,8 +1,35 @@
 #top-bar{
   margin: 0;
+  border: none;
 }
 
+#comments{
 
+}
+
+#movie-show{
+  margin: 1%;
+}
+
+#movie-info{
+  display: inline-block;
+  margin: 2%;
+}
+
+#movie-img{
+  float: left;
+  margin-right: 10px;
+}
+
+#movie-title{
+  font-size: 35px;
+}
+
+#movie-details{
+  display: inline-block;
+  word-wrap: break-word;
+  width: 50%;
+}
 
 #top-films {
   float: left;

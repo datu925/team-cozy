@@ -1,20 +1,20 @@
-<div>
-  <section class="ratable"><%= image_tag @movie.image_url %></a></div>
-  <div>
-    <h3><%= @movie.title %></h3>
-    <p>Average Rating: <span class="avg-rating"><%= number_to_percentage(@movie.average_rating, precision: 0) %></span></p>
-    <p>Release Year: <%= @movie.release_year %></p>
-    <p>Genres: <% @movie.genres.each do |genre| %>
-      <%= link_to(genre.title_case, genre_path(genre))%> ||
-      <% end %></p>
-    <div>
-      <p><%= @movie.synopsis %></p>
+<article id="movie-show">
+  <section class="ratable panel panel-info" id="movie-info">
+    <%= image_tag @movie.image_url, id: "movie-img"%>
+    <div id="movie-details">
+      <div id="movie-title"><%= @movie.title %></div>
+        <p class="panel-info">Average Rating: <span class="avg-rating"><%= number_to_percentage(@movie.average_rating, precision: 0) %></span></p>
+        <p>Release Year: <%= @movie.release_year %></p>
+        <p>Genres: <% @movie.genres.each do |genre| %>
+          <%= link_to(genre.title_case, genre_path(genre), class: "btn btn-default")%>
+        <% end %></p>
+        <%= @movie.synopsis %>
+      <%= render partial: "rating", locals: { ratable_type: "Movie" , ratable_id: @movie.id } %>
     </div>
-  <%= render partial: "rating", locals: { ratable_type: "Movie" , ratable_id: @movie.id } %>
   </section>
 
-  <section>
-    <h3>Movie Comments</h3>
+  <section class="panel panel-info" id="movie-info comments">
+    <h3 id="">Movie Comments</h3>
     <% if logged_in? %>
       <%= form_for [@movie, @comment], :html => { :id => "movie-comment" } do |f| %>
         <%= f.text_area :content, placeholder: "write comment" %>
@@ -89,5 +89,5 @@
     <% end %>
   </section>
 
-
+</article>
 </div>
