@@ -12,17 +12,13 @@ class CommentsController < ApplicationController
       commentable = Movie.find(params[:movie_id])
     end
     comment = commentable.comments.build(comment_params)
-    if session[:user_id].nil?
-      flash.now[:notice] = "You cannot make a comment without being logged in."
-    else
-      comment[:user_id] = session[:user_id]
-      if comment.save
-        respond_to do |format|
-          format.json  { render json: comment, :include => :user}
-        end
-      else
-        render :json => { :errors => comment.errors.full_messages }
+    comment[:user_id] = session[:user_id]
+    if comment.save
+      respond_to do |format|
+        format.json  { render json: comment, :include => :user}
       end
+    else
+      render :json => { :errors => comment.errors.full_messages }
     end
   end
 
