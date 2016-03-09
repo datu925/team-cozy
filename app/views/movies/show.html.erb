@@ -12,6 +12,11 @@
     </div>
   <%= render partial: "rating", locals: { ratable_type: "Movie" , ratable_id: @movie.id } %>
   </section>
+  <div id="write-review">
+    <%= link_to "Write a Review", new_movie_review_path(@movie), remote: true %>
+    <!-- <button> Write a Review!</button> -->
+  </div>
+
 
   <section>
     <h3>Movie Comments</h3>
@@ -75,13 +80,7 @@
       <% end %>
     </div>
     <% if logged_in? %>
-      <div id="new-review">
-          <%= form_for [@movie, @review], remote: true do |f|  %>
-            <%= f.text_field :title  %>
-            <%= f.text_area :content  %>
-            <%= f.submit  %>
-          <% end %>
-      </div>
+
   <% end %>
 
     <% if flash[:notice] %>

@@ -1,0 +1,7 @@
+  <div id="new-review">
+    <%= form_for [@movie, @review] do |f|  %>
+      <%= f.text_field :title  %>
+      <%= f.text_area :content  %>
+      <%= f.submit  %>
+    <% end %>
+  </div>

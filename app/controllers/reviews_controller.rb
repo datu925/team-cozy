@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def new
+    @movie = Movie.find(params[:movie_id])
     @review = Review.new
   end
 
@@ -11,9 +12,7 @@ class ReviewsController < ApplicationController
     else
       review[:user_id] = session[:user_id]
       review.save
-      respond_to do |format|
-        format.json { render json: review}
-      end
+      render json: review
     end
   end
 
