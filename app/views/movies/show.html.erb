@@ -1,8 +1,8 @@
 <div>
-  <section><%= image_tag @movie.image_url %></a></div>
+  <section class="ratable"><%= image_tag @movie.image_url %></a></div>
   <div>
     <h3><%= @movie.title %></h3>
-    <p>Average Rating: <%= @movie.average_rating %></p>
+    <p>Average Rating: <span class="avg-rating"><%= @movie.average_rating %></span></p>
     <p>Release Year: <%= @movie.release_year %></p>
     <p>Genres: <% @movie.genres.each do |genre| %>
       <%= link_to(genre.title_case, genre_path(genre))%> ||
@@ -18,13 +18,17 @@
     <div id="movie-reviews">
       <h3>Trusted Movie Reviews</h3>
       <% @movie.trusted_reviews.each do |review| %>
+      <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
         <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
+      </div>
       <% end %>
       <h3>Other Movie Reviews</h3>
       <% @movie.untrusted_reviews.each do |review| %>
+      <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
         <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
+      </div>
       <% end %>
   </div>
     <% if logged_in? %>
