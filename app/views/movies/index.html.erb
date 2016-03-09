@@ -1,25 +1,31 @@
-<h3>Top Ten Movies</h3>
-<section id="top-films">
-<ul>
-<% @movies.each do |movie| %>
-<li class="top-movie"><%= image_tag(movie.image_url, size: "50x50") %>
-  <%= link_to(movie.title, movie_path(movie)) %> (Average Rating: <%=movie.average_rating%>)</li>
-<% end %>
-</ul>
+<section class="panel panel-primary" id="top-films">
+  <div class="panel-heading">
+    <h3 class="panel-title">Top Ten Movies</h3>
+  </div>
+  <ul id="list-frame">
+    <% @movies.each do |movie| %>
+      <li class="list-inline" id="top-movie"><%= image_tag(movie.image_url, size: "50x50") %>
+      <%= link_to(movie.title, movie_path(movie)) %> (Avg Rating: <%=movie.average_rating%>)</li>
+    <% end %>
+  </ul>
 </section>
-<h3>Most Recent Reviews</h3>
-<section id="recent-reviews">
-<ul>
+<section class="panel panel-primary" id="recent-reviews">
+  <div class="panel-heading">
+    <h3 class="panel-title">Most Recent Reviews</h3>
+  </div>
+<ul id="list-frame">
 <% @reviews.each do |review| %>
-<li id="review<%= review.id %>"><%= review.title + " || Review of " %><%= link_to(review.movie.title, movie_path(review.movie)) + " by " %><%= review.user.username %></li>
+<li class="list-inline panel-body" id="review<%= review.id %>"><%= review.title %><br>Review of <%= link_to(review.movie.title, movie_path(review.movie)) + " by " %><%= review.user.username %></li>
 <% end %>
 </ul>
 </section>
-<h3>Most Popular Genres</h3>
-<section id="pop-genres">
-<ul>
+<section class="panel panel-primary" id="pop-genres">
+  <div class="panel-heading">
+    <h3 class="panel-title">Most Popular Genres</h3>
+  </div>
+  <ul id="list-frame">
 <% @genres.each do |genre| %>
-<li><%= link_to(genre.title_case, genre_path(genre))%></li>
+<li class="list-inline panel-body"><%= link_to(genre.title_case, genre_path(genre))%></li>
 <% end %>
 </ul>
 </section>
