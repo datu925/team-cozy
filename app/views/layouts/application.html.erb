@@ -3,23 +3,33 @@
   <head>
     <title>CozyTime Reviews</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+    <%= stylesheet_link_tag 'app' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false  %>
+    <%= javascript_include_tag 'application', "data-turbolinks-track" => false  %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <h1><%= link_to("CozyTime Reviews", root_path)%></h1>
-      <nav>
-        <ul>
+    <header class="page-header">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <%= link_to raw("CozyTime Reviews <i class='icon-coffee'></i>"), {controller: "movies", action: "index"}, class: "navbar-brand" %>
+      </div>
+
+        <ul class="nav navbar-nav">
           <% if logged_in? %>
-            <li>Welcome, <%= current_user.name %></li>
+            <li><a>Welcome, <i class='icon-user'></i> <%= current_user.name %></a></li>
             <li><%= link_to("Logout", logout_path) %></li>
           <% else %>
             <li><%= link_to("Register", register_path)%></li>
             <li><%= link_to("Login", login_path)%></li>
           <% end %>
+            <li><%= form_tag("/search", {method: "get", class: "navbar-form navbar-left"}) do %>
+              <%= text_field_tag(:q) %>
+              <i class='icon-search'></i>
+              <% end %></li>
         </ul>
       </nav>
+
     </header>
     <%= yield %>
   </body>

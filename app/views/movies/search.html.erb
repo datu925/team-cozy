@@ -1,0 +1,11 @@
+<section class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search Results</h3>
+  </div>
+<ul>
+<% @movies.each do |movie| %>
+<li class="list-inline result"><%= image_tag(movie.image_url, size: "50x50") %>
+  <%= link_to(movie.title, movie_path(movie)) %> (Average Rating: <%=movie.average_rating%>)</li>
+<% end %>
+</ul>
+</section>
