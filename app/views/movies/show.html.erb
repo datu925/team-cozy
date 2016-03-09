@@ -28,6 +28,7 @@
             <%= f.text_area :content, placeholder: "write comment" %>
             <%= f.submit %>
           <% end %>
+          <div class="error-message"></div>
         <% end %>
 
       </div>
@@ -76,7 +77,6 @@
       <% end %>
     </div>
 
-
     <% if logged_in? %>
       <%= form_for [@movie, @comment], :html => { :id => "movie-comment" } do |f| %>
         <%= f.text_area :content, placeholder: "write comment" %>
@@ -84,6 +84,5 @@
       <% end %>
     <% end %>
 
-    <%= flash[:errors] %>
   </section>
 </div>
