@@ -9,8 +9,7 @@
 
 #movie-info{
   display: inline-block;
-  margin-left: 2%;
-  margin-right: 2%;
+  width: 88%
 }
 
 #movie-link{
@@ -43,7 +42,7 @@
 
 #comments{
   margin-left: 2%;
-  width: 88%;
+  width: 85%;
 }
 
 #comment-listing{

@@ -37,9 +37,10 @@
     </div>
   </section>
 
-  <section>
-    <div id="movie-reviews">
-      <h3>Trusted Movie Reviews</h3>
+  <section class="panel panel-success" id="reviews">
+    <div class="panel-heading" id="movie-reviews">
+      <h3 class="panel-title">Trusted Movie Reviews</h3>
+    </div>
       <% @movie.trusted_reviews.each do |review| %>
       <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
