@@ -33,7 +33,6 @@ $(document).ready(function() {
   });
 
   $("#movie-comment").on("submit", function(e) {
-    debugger;
     var that = $(this);
     e.preventDefault();
     var url = $(this).attr('action');
@@ -47,12 +46,13 @@ $(document).ready(function() {
     });
 
     request.done(function(response){
+      console.log(response);
       if (response['errors']) {
         $(that).closest('form').append("<p>Content can't be blank</p>");
       };
 
-      var commentDiv = "<div><p>" + response['content'] + "</p><p>Commented by " + response['user']['username'] + "</p></div>"
-      $("#comment-listing").prepend(commentDiv);
+      var commentDiv = "<div class='panel-body' id='comment-listing'><p id='comment-content'>" + response['content'] + "</p><p class='text-info' id='user-commented'>Commented by " + response['user']['username'] + "</p></div>"
+      $("#comments-left").prepend(commentDiv);
       $("#movie-comment").trigger('reset');
     });
 
