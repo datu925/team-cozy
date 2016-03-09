@@ -1,7 +1,9 @@
   <div id="new-review">
-    <%= form_for [@movie, @review] do |f|  %>
-      <%= f.text_field :title  %>
-      <%= f.text_area :content  %>
+    <%= form_for [@movie, @review], remote: true do |f|  %>
+      <%= f.text_field :title, placeholder: "Write your title"  %>
+      <%= f.text_area :content, placeholder: "Write your content"  %>
       <%= f.submit  %>
     <% end %>
   </div>
+
+  <!-- new_movie_review_path -->

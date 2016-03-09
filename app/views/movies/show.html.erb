@@ -47,7 +47,7 @@
     <div id="movie-reviews">
       <h3>Trusted Movie Reviews</h3>
       <% @movie.trusted_reviews.each do |review| %>
-      <div class="ratable">
+      <div class="ratable" id="new-rating-thing">
         <%= render partial: "review", locals: { review: review } %>
         <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
 
