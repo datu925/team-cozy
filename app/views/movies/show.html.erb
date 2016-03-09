@@ -13,12 +13,6 @@
 
     </div>
   </section>
-  <div id="write-review">
-    <% if logged_in? %>
-      <%= link_to "Write a Review", new_movie_review_path(@movie), remote: true %>
-    <% end %>
-  </div>
-
 
   <section class="panel panel-info" id="comments">
     <div class="panel-heading">
@@ -43,23 +37,34 @@
     </div>
   </section>
 
-  <section>
-    <div id="movie-reviews">
-      <h3>Trusted Movie Reviews</h3>
+<div id="write-review">
+    <% if logged_in? %>
+      <%= link_to "Write a Review", new_movie_review_path(@movie), remote: true %>
+    <% end %>
+  </div>
+  <section class="panel panel-success" id="reviews">
+    <div class="panel-heading" id="movie-reviews">
+      <h3 class="panel-title">Trusted Movie Reviews</h3>
+    </div>
       <% @movie.trusted_reviews.each do |review| %>
       <div class="ratable" id="new-rating-thing">
         <%= render partial: "review", locals: { review: review } %>
         <% if logged_in? %>
+        <div class="panel-body" id="comment-listing">
           <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
             <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
             <%= f.text_area :content, placeholder: "write comment" %>
             <%= f.submit %>
           <% end %>
+        </div>
         <% end %>
 
       </div>
       <% end %>
-      <h3>Other Movie Reviews</h3>
+  <section class="panel panel-danger" id="reviews">
+    <div class="panel-heading" id="movie-reviews">
+      <h3 class="panel-title"> Other Movie Reviews</h3>
+      </div>
       <% @movie.untrusted_reviews.each do |review| %>
       <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
