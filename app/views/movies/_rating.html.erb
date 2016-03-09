@@ -1,19 +1,15 @@
 <%= form_for :rating, {url: ratings_path, authenticity_token: true, html: { class: "rating" }} do |f| %>
-  <!-- Rating: <%= f.text_field :value %> -->
-  Rate this <%= ratable_type.downcase %>:
-  <div class="rating-scale">
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-    <a href="hi"><i class="icon-thumbs-up"></i></a>
-  </div>
-  <%= hidden_field_tag :'rating[ratable_id]', ratable_id %>
-  <%= hidden_field_tag :'rating[ratable_type]', ratable_type %>
-  <div class="rating-messages"></div>
+  Rating:
+    <div class="rating-scale">
+      <% 10.times do |index| %>
+        <% if user_rating(ratable).try(:value) == index + 1 %>
+          <a><i class="icon-thumbs-up marked"></i></a>
+        <% else %>
+          <a><i class="icon-thumbs-up"></i></a>
+        <% end %>
+      <% end %>
+    </div>
+    <%= hidden_field_tag :'rating[ratable_id]', ratable.id %>
+    <%= hidden_field_tag :'rating[ratable_type]', ratable.class.name %>
+    <div class="rating-messages"></div>
 <% end %>
