@@ -41,12 +41,27 @@
 
   <section>
     <h3>Movie Comments</h3>
-    <% @movie.comments.each do |comment| %>
-    <div>
-      <!-- add username -->
-      <p><%= comment.content %></p>
+    <div id="comment-listing">
+      <% @movie.comments.each do |comment| %>
+      <div>
+        <p><%= comment.content %></p>
+        <p>commented by <%= comment.user.username %></p>
+      </div>
+      <% end %>
     </div>
-    <p>commented by <%= comment.user.username %></p>
+
+
+    <% if logged_in? %>
+      <%= form_for [@movie, @comment], remote: true do |f| %>
+        <%= f.text_area :content, placeholder: "write comment" %>
+        <%= f.submit %>
+      <% end %>
     <% end %>
+
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+
+    <%= flash[:errors] %>
   </section>
 </div>
