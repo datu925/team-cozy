@@ -1,6 +1,9 @@
 #top-bar{
   margin: 0;
   border: none;
+  position: fixed;
+  top:0;
+  width: 100%;
 }
 
 #movie-show{
