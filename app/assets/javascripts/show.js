@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  $(".review-comment").on("submit", function(e){
+    e.preventDefault();
+  });
+
   $("#new_comment").on("submit", function(e) {
     e.preventDefault();
     var url = $(this).attr('action');

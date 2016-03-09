@@ -20,13 +20,19 @@
       <% @movie.trusted_reviews.each do |review| %>
         <%= render partial: "review", locals: { review: review } %>
         <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
+
+
+
       <% end %>
       <h3>Other Movie Reviews</h3>
       <% @movie.untrusted_reviews.each do |review| %>
         <%= render partial: "review", locals: { review: review } %>
         <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
+
+
+
       <% end %>
-  </div>
+    </div>
     <% if logged_in? %>
       <div id="new-review">
           <%= form_for [@movie, @review], remote: true do |f|  %>

@@ -6,8 +6,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    movie = Movie.find(params[:movie_id])
-    comment = movie.comments.new(comment_params)
+    if params[:movie_id]
+      commentable = Movie.find(params[:movie_id])
+    elsif params[:review_id]
+      commentable = Review.find(params[:review_id])
+    end
+    comment = commentable.comments.build(comment_params)
     if session[:user_id].nil?
       flash.now[:notice] = "You cannot make a comment without being logged in."
     else
@@ -24,7 +28,7 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:content, :movie_id)
+      params.require(:comment).permit(:content, :movie_id, :review_id, :commentable_id, :commentable_type)
     end
 end
 
