@@ -3,22 +3,19 @@
   border: none;
 }
 
-#comments{
-
-}
-
 #movie-show{
   margin: 1%;
 }
 
 #movie-info{
   display: inline-block;
-  margin: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 #movie-img{
   float: left;
-  margin-right: 10px;
+  margin: 10px;
 }
 
 #movie-title{
@@ -29,6 +26,25 @@
   display: inline-block;
   word-wrap: break-word;
   width: 50%;
+}
+
+#comments{
+  margin-left: 2%;
+  width: 88%;
+}
+
+#comment-listing{
+  border-bottom: 1px solid #bce8f1;
+  border-top-left-radius: 3px;
+}
+
+#comment-content{
+  margin: 0;
+}
+
+#user-commented{
+  float: right;
+  margin: 0;
 }
 
 #top-films {
