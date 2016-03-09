@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: 'logout'
 
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show] do
+    resources :comments, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
+  end
+
   resources :genres, only: [:show]
   resources :ratings, only: [:create]
 

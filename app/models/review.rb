@@ -15,5 +15,4 @@ class Review < ActiveRecord::Base
       self.ratings.sum(:value)/self.ratings.count
     end
   end
-
 end
