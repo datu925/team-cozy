@@ -1,46 +1,46 @@
-<div>
-  <section class="ratable"><%= image_tag @movie.image_url %></a></div>
-  <div>
-    <h3><%= @movie.title %></h3>
-    <p>Average Rating: <span class="avg-rating"><%= number_to_percentage(@movie.average_rating, precision: 0) %></span></p>
-    <p>Release Year: <%= @movie.release_year %></p>
-    <p>Genres: <% @movie.genres.each do |genre| %>
-      <%= link_to(genre.title_case, genre_path(genre))%> ||
-      <% end %></p>
-    <div>
-      <p><%= @movie.synopsis %></p>
+<article id="movie-show">
+  <section class="ratable panel panel-info" id="movie-info">
+    <%= image_tag @movie.image_url, id: "movie-img"%>
+    <div id="movie-details">
+      <div id="movie-title"><%= @movie.title %></div>
+        <p class="panel-info">Average Rating: <span class="avg-rating"><%= number_to_percentage(@movie.average_rating, precision: 0) %></span></p>
+        <%= render partial: "rating", locals: { ratable: @movie } %>
+        <p>Release Year: <%= @movie.release_year %></p>
+        <p>Genres: <% @movie.genres.each do |genre| %>
+          <%= link_to(genre.title_case, genre_path(genre), class: "btn btn-default")%>
+        <% end %></p>
+        <%= @movie.synopsis %>
+
     </div>
-  <%= render partial: "rating", locals: { ratable_type: "Movie" , ratable_id: @movie.id } %>
   </section>
   <div id="write-review">
-    <%= link_to "Write a Review", new_movie_review_path(@movie), remote: true %>
-    <!-- <button> Write a Review!</button> -->
+    <% if logged_in? %>
+      <%= link_to "Write a Review", new_movie_review_path(@movie), remote: true %>
+    <% end %>
   </div>
 
 
-  <section>
-    <h3>Movie Comments</h3>
+  <section class="panel panel-info" id="comments">
+    <div class="panel-heading">
+      <h3 class="panel-title">Movie Comments</h3>
+    </div>
+
     <% if logged_in? %>
-      <%= form_for [@movie, @comment], :html => { :id => "movie-comment" } do |f| %>
-        <%= f.text_area :content, placeholder: "write comment" %>
-        <%= f.submit %>
-      <% end %>
+      <div class="panel-body" id="comment-listing">
+        <%= form_for [@movie, @comment], :html => { :id => "movie-comment" } do |f| %>
+          <%= f.text_area :content, placeholder: "write comment" %>
+          <%= f.submit %>
+        <% end %>
+      </div>
     <% end %>
-
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% end %>
-
-    <%= flash[:errors] %>
-    <div id="comment-listing">
+  <div id="comments-left">
       <% @movie.comments.each do |comment| %>
-      <div>
-        <p><%= comment.content %></p>
-        <p>commented by <%= comment.user.username %></p>
+      <div class="panel-body" id="comment-listing">
+        <p id="comment-content"><%= comment.content %></p>
+        <p class="text-info" id="user-commented">commented by <%= comment.user.username %></p>
       </div>
       <% end %>
     </div>
-
   </section>
 
   <section>
@@ -49,8 +49,6 @@
       <% @movie.trusted_reviews.each do |review| %>
       <div class="ratable" id="new-rating-thing">
         <%= render partial: "review", locals: { review: review } %>
-        <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
-
         <% if logged_in? %>
           <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
             <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
@@ -65,28 +63,22 @@
       <% @movie.untrusted_reviews.each do |review| %>
       <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
-        <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
-
           <% if logged_in? %>
-          <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
-            <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
-            <%= f.text_area :content, placeholder: "write comment" %>
-            <%= f.submit %>
+            <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
+              <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
+              <%= f.text_area :content, placeholder: "write comment" %>
+              <%= f.submit %>
+            <% end %>
           <% end %>
-        <% end %>
 
       </div>
 
       <% end %>
     </div>
-    <% if logged_in? %>
-
-  <% end %>
 
     <% if flash[:notice] %>
       <%= flash[:notice]  %>
     <% end %>
   </section>
-
-
+</article>
 </div>

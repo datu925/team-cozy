@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'faker'
 gem 'responders', '~> 2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

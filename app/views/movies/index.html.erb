@@ -1,11 +1,17 @@
+<div id="video">
+    <div class="fullscreen-bg">
+        <%= video_tag("GasFlames.mov", autoplay: true, loop:true) %>
+        <div id="overlay">Get comfy, rant about movies.</div>
+    </div>
+</div>
 <section class="panel panel-primary" id="top-films">
   <div class="panel-heading">
     <h3 class="panel-title">Top Ten Movies</h3>
   </div>
   <ul id="list-frame">
     <% @movies.each do |movie| %>
-      <li class="list-inline" id="top-movie"><%= image_tag(movie.image_url, size: "50x50") %>
-      <%= link_to(movie.title, movie_path(movie)) %> (Avg Rating: <%=movie.average_rating%>)</li>
+      <li class="list-inline" id="top-movie"><%= image_tag movie.image_url, id: "movie-preview-img", size: "50x50"%>
+      <div id="movie-link"><%= link_to(movie.title, movie_path(movie)) %> (Avg Rating: <%= number_to_percentage(movie.average_rating, precision: 0) %>)</div></li>
     <% end %>
   </ul>
 </section>

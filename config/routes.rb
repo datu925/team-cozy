@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :genres, only: [:show]
   resources :ratings, only: [:create]
+  put "ratings" => "ratings#update"
 
   get '/search' => 'movies#search'
 

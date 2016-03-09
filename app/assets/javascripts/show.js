@@ -9,6 +9,7 @@ $(document).ready(function() {
   };
 
   $(".review-comment").on("submit", function(e){
+    var that = $(this);
     e.preventDefault();
     var url = $(this).attr('action');
     var data = $(this).serialize();
@@ -21,14 +22,18 @@ $(document).ready(function() {
     });
 
     request.done(function(response){
+      if (response['errors']) {
+        $(that).closest('form').append("<p>Content can't be blank</p>");
+      };
+
       var commentDiv = "<div><p>" + response['content'] + "</p><p>Commented by " + response['user']['username'] + "</p></div>"
-      $("#review-comments-" + reviewId).append(commentDiv);
+      $("#review-comments-" + reviewId).prepend(commentDiv);
       $(".review-comment").trigger('reset');
     });
-
   });
 
   $("#movie-comment").on("submit", function(e) {
+    var that = $(this);
     e.preventDefault();
     var url = $(this).attr('action');
     var data = $(this).serialize();
@@ -41,15 +46,19 @@ $(document).ready(function() {
     });
 
     request.done(function(response){
-      var commentDiv = "<div><p>" + response['content'] + "</p><p>Commented by " + response['user']['username'] + "</p></div>"
-      $("#comment-listing").append(commentDiv);
-      $('#new_comment').trigger('reset');
+      console.log(response);
+      if (response['errors']) {
+        $(that).closest('form').append("<p>Content can't be blank</p>");
+      };
+
+      var commentDiv = "<div class='panel-body' id='comment-listing'><p id='comment-content'>" + response['content'] + "</p><p class='text-info' id='user-commented'>Commented by " + response['user']['username'] + "</p></div>"
+      $("#comments-left").prepend(commentDiv);
+      $("#movie-comment").trigger('reset');
     });
 
     request.fail(function(response){
       alert(response)
     });
-
   });
 
 
