@@ -4,7 +4,6 @@ describe 'movie' do
   let(:movie) { Movie.create!(title: "Test title", release_year: 2016, synopsis: "This is a synopsis") }
 
 
-
   describe 'initialization' do
     it 'creates a new instance of movie' do
       expect(movie).to be_instance_of(Movie)
@@ -13,10 +12,11 @@ describe 'movie' do
 
   describe '#average rating' do
     it 'returns an average rating of a movie' do
-      2.times.map do
-        movie.ratings.create!(value: 2)
-      end
-      expect(movie.average_rating).to eq(2)
+      user1 = User.create(first_name: "j",last_name: "q", username: "jq", password: "password")
+      user2 = User.create(first_name: "k",last_name: "q", username: "kq", password: "password")
+        movie.ratings.create(user: user1, value: 2)
+        movie.ratings.create(user: user2, value: 6)
+      expect(movie.average_rating).to eq(4)
    end
   end
 

@@ -8,4 +8,11 @@ class Review < ActiveRecord::Base
     Review.order(created_at: :asc).limit(10)
   end
 
+  def average_rating
+    if self.ratings.count == 0
+      return "unrated"
+    else
+      self.ratings.sum(:value)/self.ratings.count
+    end
+  end
 end

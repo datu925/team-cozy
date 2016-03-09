@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :genres, only: [:show]
+  resources :ratings, only: [:create]
 
   get '/search' => 'movies#search'
 

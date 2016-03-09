@@ -1,3 +1,11 @@
+User.destroy_all
+Genre.destroy_all
+Movie.destroy_all
+Comment.destroy_all
+Review.destroy_all
+Rating.destroy_all
+Categorization.destroy_all
+
 dan = User.create!(username: "datu", password: "password", first_name: "Dan", last_name: "Turcza", is_trusted: true)
 catie = User.create!(username: "cstallings", password: "password", first_name: "Catie", last_name: "Stallings", is_trusted: false)
 lauren = User.create!(username: "laurenn", password: "password", first_name: "Lauren", last_name: "Reid", is_trusted: false)
@@ -27,7 +35,7 @@ movies.each do |movie|
   end
 
    3.times.map do
-    movie.ratings.create!(value: rand(10), user: users.sample)
+    movie.ratings.create(value: rand(10) + 1, user: users.sample)
   end
 
   3.times.map do
@@ -41,7 +49,7 @@ reviews = Review.all
 reviews.each do |review|
 
   3.times.map do
-    review.ratings.create!(value: rand(10), user: users.sample)
+    review.ratings.create(value: rand(10) + 1, user: users.sample)
   end
 
   3.times.map do
