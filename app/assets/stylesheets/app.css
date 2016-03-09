@@ -1,0 +1,28 @@
+.navbar-brand {
+  font-size: 35px;
+}
+
+#top-films {
+  float: left;
+  width: 33%;
+  margin-right: 5px;
+}
+#list-frame{
+  padding-left: 1px;
+  list-style: none;
+  margin-left: -5px;
+}
+#list-frame > li {
+  display: inline-block;
+}
+#recent-reviews {
+  float: left;
+  width: 33%;
+  margin-right: 5px;
+}
+
+#pop-genres {
+  float: left;
+  width: 30%;
+  margin-right: 5px;
+}
