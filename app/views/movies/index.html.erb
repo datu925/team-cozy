@@ -23,7 +23,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">Most Popular Genres</h3>
   </div>
-  <ul id="list-frame">
+  <ul id="list-frame genre-list">
 <% @genres.each do |genre| %>
 <li class="list-inline panel-body"><%= link_to(genre.title_case, genre_path(genre))%></li>
 <% end %>

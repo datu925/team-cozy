@@ -1,18 +1,34 @@
-.navbar-brand {
-  font-size: 35px;
+#top-bar{
+  margin: 0;
 }
+
+
 
 #top-films {
   float: left;
   width: 33%;
+  margin-left: 2%;
   margin-right: 5px;
 }
+
+#genre {
+  width: 99%;
+  list-style: none;
+  margin: 5px;
+}
+
+#top-genre {
+  list-style: none;
+  margin: 5px;
+}
+
 #list-frame{
   padding-left: 1px;
   list-style: none;
   margin-left: -5px;
 }
-#list-frame > li {
+
+#genre-list > li {
   display: inline-block;
 }
 #recent-reviews {
