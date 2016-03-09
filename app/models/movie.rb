@@ -5,13 +5,7 @@ class Movie < ActiveRecord::Base
   has_many :categorizations
   has_many :genres, through: :categorizations
 
-  def average_rating
-    if self.ratings.count == 0
-      return "unrated"
-    else
-      self.ratings.sum(:value)/self.ratings.count
-    end
-  end
+  include Pointable
 
   def self.title_search(search)
     fz = FuzzyMatch.new(Movie.all, :read => :title)

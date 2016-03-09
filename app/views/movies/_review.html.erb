@@ -1,5 +1,5 @@
 <h2><%= review.title %></h2>
-<div>Average rating: <span class="avg-rating"><%= review.average_rating %></span></div>
+<div>Average rating: <span class="avg-rating"><%= number_to_percentage(review.average_rating, precision: 0) %></span></div>
 <div>
   <p><%= review.content %></p>
 </div>
