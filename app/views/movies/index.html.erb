@@ -5,7 +5,7 @@
   <ul id="list-frame">
     <% @movies.each do |movie| %>
       <li class="list-inline" id="top-movie"><%= image_tag(movie.image_url, size: "50x50") %>
-      <%= link_to(movie.title, movie_path(movie)) %> (Avg Rating: <%=movie.average_rating%>)</li>
+      <%= link_to(movie.title, movie_path(movie)) %> (Avg Rating: <%= number_to_percentage(movie.average_rating, precision: 0) %>)</li>
     <% end %>
   </ul>
 </section>
@@ -23,7 +23,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">Most Popular Genres</h3>
   </div>
-  <ul id="list-frame">
+  <ul id="list-frame genre-list">
 <% @genres.each do |genre| %>
 <li class="list-inline panel-body"><%= link_to(genre.title_case, genre_path(genre))%></li>
 <% end %>
