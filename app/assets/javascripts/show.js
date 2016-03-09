@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     request.done(function(response){
       var commentDiv = "<div><p>" + response['content'] + "</p><p>Commented by " + response['user']['username'] + "</p></div>"
-      $("#review-comments-" + reviewId).append(commentDiv);
+      $("#review-comments-" + reviewId).prepend(commentDiv);
       $(".review-comment").trigger('reset');
     });
 
@@ -42,17 +42,15 @@ $(document).ready(function() {
 
     request.done(function(response){
       var commentDiv = "<div><p>" + response['content'] + "</p><p>Commented by " + response['user']['username'] + "</p></div>"
-      $("#comment-listing").append(commentDiv);
-      $('#new_comment').trigger('reset');
+      $("#comment-listing").prepend(commentDiv);
+      $("#movie-comment").trigger('reset');
     });
 
     request.fail(function(response){
       alert(response)
     });
-
   });
 
-// });
 
   $("#new-review").on("submit", "form", function(event) {
     event.preventDefault();
