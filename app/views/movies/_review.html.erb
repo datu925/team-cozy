@@ -1,7 +1,7 @@
 <h2><%= review.title %></h2>
 <div>Average rating: <span class="avg-rating"><%= number_to_percentage(review.average_rating, precision: 0) %></span></div>
 <div>
-  <%= render partial: "rating", locals: { ratable: review } %>
+  <%= render partial: "movies/rating", locals: { ratable: review } %>
   <p><%= review.content %></p>
 </div>
 <p>reviewed by <%= review.user.username %></p>
