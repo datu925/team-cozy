@@ -3,8 +3,11 @@ class RatingsController < ApplicationController
     user = User.find_by(id: session[:user_id])
     rating = user.ratings.new(rating_params)
     # send back successful code
+
     if rating.save
-      render json: rating.ratable.average_rating, status: :ok
+      details = { new_rating: rating.value,
+                  avg_rating: rating.ratable.average_rating }
+      render json: details, status: :ok
     else
       render json: rating.errors.full_messages, status: :not_acceptable
     end

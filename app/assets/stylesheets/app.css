@@ -46,3 +46,8 @@
 .rating-scale {
   display: inline;
 }
+
+
+.marked {
+  color: black;
+}
