@@ -4,7 +4,7 @@
     <div id="movie-details">
       <div id="movie-title"><%= @movie.title %></div>
         <p class="panel-info">Average Rating: <span class="avg-rating"><%= number_to_percentage(@movie.average_rating, precision: 0) %></span></p>
-        <%= render partial: "rating", locals: { ratable_type: "Movie" , ratable_id: @movie.id } %>
+        <%= render partial: "rating", locals: { ratable: @movie } %>
         <p>Release Year: <%= @movie.release_year %></p>
         <p>Genres: <% @movie.genres.each do |genre| %>
           <%= link_to(genre.title_case, genre_path(genre), class: "btn btn-default")%>
