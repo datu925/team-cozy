@@ -13,7 +13,6 @@ $(document).ready(function() {
     var url = $(this).attr('action');
     var data = $(this).serialize();
     var reviewId = convertToJson($(this))['comment[review_id]'];
-
     var request = $.ajax({
       method: "POST",
       url: url,

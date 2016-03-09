@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    if params[:movie_id]
-      commentable = Movie.find(params[:movie_id])
-    elsif params[:review_id]
+     if params[:review_id]
       commentable = Review.find(params[:review_id])
+    elsif params[:movie_id]
+      commentable = Movie.find(params[:movie_id])
     end
     comment = commentable.comments.build(comment_params)
     if session[:user_id].nil?
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:content, :movie_id, :commentable_id, :commentable_type)
+      params.require(:comment).permit(:content)
     end
 end
 
