@@ -8,7 +8,4 @@ class Review < ActiveRecord::Base
     Review.order(created_at: :asc).limit(10)
   end
 
-
-
-
 end
