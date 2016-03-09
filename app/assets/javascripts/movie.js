@@ -1,6 +1,6 @@
 $(function() {
 
-  $(".rating").on("click","a", function(e) {
+  $(".rating-scale").on("click","a", function(e) {
     e.preventDefault();
     var value = $(this).index() + 1;
     var form = $(this).closest("form");
@@ -24,7 +24,7 @@ $(function() {
       form.closest(".ratable").find(".avg-rating").text(details.avg_rating + "%");
     })
     .error(function(response) {
-      form.find(".rating-messages").text("You can't rate more than once.");
+      form.find(".rating-messages").replaceWith("<div class='rating-message'>You must <a href='/login'>login</a> or <a href='/register'>register</a> to vote!</div>");
     });
   });
 

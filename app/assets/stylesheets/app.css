@@ -13,6 +13,19 @@
   margin-right: 2%;
 }
 
+#movie-link{
+  display: inline-block;
+  width: 66%;
+  padding: 2px;
+}
+#top-movie{
+  padding: 2px;
+}
+#movie-preview-img{
+  padding-left: 2%;
+  border-radius: 3px;
+}
+
 #movie-img{
   float: left;
   margin: 10px;
@@ -68,7 +81,6 @@
 #list-frame{
   padding-left: 1px;
   list-style: none;
-  margin-left: -5px;
 }
 
 #genre-list > li {
