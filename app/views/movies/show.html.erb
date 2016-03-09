@@ -21,6 +21,15 @@
       <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
         <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
+
+        <% if logged_in? %>
+          <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
+            <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
+            <%= f.text_area :content, placeholder: "write comment" %>
+            <%= f.submit %>
+          <% end %>
+        <% end %>
+
       </div>
       <% end %>
       <h3>Other Movie Reviews</h3>
@@ -28,9 +37,19 @@
       <div class="ratable">
         <%= render partial: "review", locals: { review: review } %>
         <%= render partial: "rating", locals: { ratable_type: "Review" , ratable_id: review.id } %>
+
+          <% if logged_in? %>
+          <%= form_for [@movie, review, @comment], :html => { :class => "review-comment" } do |f| %>
+            <%= f.hidden_field :review_id, :value => "#{review.id.to_s}" %>
+            <%= f.text_area :content, placeholder: "write comment" %>
+            <%= f.submit %>
+          <% end %>
+        <% end %>
+
       </div>
+
       <% end %>
-  </div>
+    </div>
     <% if logged_in? %>
       <div id="new-review">
           <%= form_for [@movie, @review], remote: true do |f|  %>
@@ -59,7 +78,7 @@
 
 
     <% if logged_in? %>
-      <%= form_for [@movie, @comment], remote: true do |f| %>
+      <%= form_for [@movie, @comment], :html => { :id => "movie-comment" } do |f| %>
         <%= f.text_area :content, placeholder: "write comment" %>
         <%= f.submit %>
       <% end %>

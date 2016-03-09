@@ -1,6 +1,34 @@
 $(document).ready(function() {
 
-  $("#new_comment").on("submit", function(e) {
+  var convertToJson = function(d) {
+    var data = {};
+    d.serializeArray().forEach(function(obj) {
+      data[obj['name']] = obj['value'];
+    });
+    return data
+  };
+
+  $(".review-comment").on("submit", function(e){
+    e.preventDefault();
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
+    var reviewId = convertToJson($(this))['comment[review_id]'];
+    var request = $.ajax({
+      method: "POST",
+      url: url,
+      dataType: "json",
+      data: data,
+    });
+
+    request.done(function(response){
+      var commentDiv = "<div><p>" + response['content'] + "</p><p>Commented by " + response['user']['username'] + "</p></div>"
+      $("#review-comments-" + reviewId).append(commentDiv);
+      $(".review-comment").trigger('reset');
+    });
+
+  });
+
+  $("#movie-comment").on("submit", function(e) {
     e.preventDefault();
     var url = $(this).attr('action');
     var data = $(this).serialize();
