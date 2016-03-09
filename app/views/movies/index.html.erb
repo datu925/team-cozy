@@ -10,8 +10,8 @@
   </div>
   <ul id="list-frame">
     <% @movies.each do |movie| %>
-      <li class="list-inline" id="top-movie"><%= image_tag(movie.image_url, size: "50x50") %>
-      <%= link_to(movie.title, movie_path(movie)) %> (Avg Rating: <%= number_to_percentage(movie.average_rating, precision: 0) %>)</li>
+      <li class="list-inline" id="top-movie"><%= image_tag movie.image_url, id: "movie-preview-img", size: "50x50"%>
+      <div id="movie-link"><%= link_to(movie.title, movie_path(movie)) %> (Avg Rating: <%= number_to_percentage(movie.average_rating, precision: 0) %>)</div></li>
     <% end %>
   </ul>
 </section>
